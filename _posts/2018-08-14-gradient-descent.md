@@ -15,7 +15,6 @@ tags: 优化方法
 ## 批梯度下降法
 
 &emsp;&emsp;批梯度下降法一次迭代使用所有训练数据（一次迭代即参数更新一次），该方法的伪代码如下：
-
 ```python
 epoch_nums = N
 初始化训练参数parameters
@@ -31,7 +30,6 @@ for epoch in range(epoch_nums):
 ## 小批量梯度下降法
 
 &emsp;&emsp;小批量梯度下降法把训练数据集分成若干份，每份数据集即为一个小批量，其所含样本数量为batch size。每次迭代只在一个小批量上进行。伪代码如下：
-
 ```python
 epoch_nums = N
 batch_size = 64
@@ -46,7 +44,7 @@ for epoch in range(epoch_nums):
             parameters[key] = parameters[key] - learning_rate * grads[key]
     if(m % batch_size != 0):
         mb_X = X[:, (m // batch_size) * batch_size:]
-		mb_Y = Y[:, (m // batch_size) * batch_size:]
+        mb_Y = Y[:, (m // batch_size) * batch_size:]
         使用mb_X, mb_Y和paramters进行前向传播, 计算损失函数J
         反向传播计算梯度grads
         for key in parameters.keys():
@@ -84,7 +82,6 @@ $$
 ### Momentum
 
 &emsp;&emsp;梯度下降法中的Momentum即为计算梯度的EMA，初始化v为一个字典，其keys和grads的keys相同，v[keys]为和grads[keys]形状相同的零矩阵，这个初始化在进行训练前执行。这里只给出一次迭代的伪代码：
-
 ```python
 mb_X = X[:, iter*batch_size:(iter+1)*batch_size]
 mb_Y = Y[:, iter*batch_size:(iter+1)*batch_size]
@@ -103,7 +100,6 @@ for key in parameters.keys():
 ## RMSprop
 
 &emsp;&emsp;RMSprop（Root Mean Squared propagation）也计算了一个EMA，不过它计算的是梯度平方的EMA。初始化s为一个字典，其keys和grads的keys相同，s[keys]为和grads[keys]形状相同的零矩阵，这个初始化在进行训练前执行。一次迭代的伪代码如下：
-
 ```python
 import numpy as np
 mb_X = X[:, iter*batch_size:(iter+1)*batch_size]
@@ -121,7 +117,6 @@ for key in parameters.keys():
 ## Adam
 
 &emsp;&emsp;Adam方法结合了RMSprop和Momentum，其效果通常是所提到的优化方法中最好的。一次迭代的伪代码如下：
-
 ```python
 import numpy as np
 mb_X = X[:, iter*batch_size:(iter+1)*batch_size]
