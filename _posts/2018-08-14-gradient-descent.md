@@ -37,7 +37,7 @@ batch_size = 64
 for epoch in range(epoch_nums):
     for iter in range(m // batch_size):
         mb_X = X[:, iter*batch_size:(iter+1)*batch_size]
-		mb_Y = Y[:, iter*batch_size:(iter+1)*batch_size]
+        mb_Y = Y[:, iter*batch_size:(iter+1)*batch_size]
         使用mb_X, mb_Y和paramters进行前向传播, 计算损失函数J
         反向传播计算梯度grads
         for key in parameters.keys():
