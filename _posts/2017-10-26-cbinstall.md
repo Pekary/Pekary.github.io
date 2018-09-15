@@ -3,7 +3,7 @@ layout: post
 title: Ubuntu下手动安装codeblocks
 author: Pekary
 date: 2017-10-26-13:00:00 +0800
-tags: Ubuntu
+tags: Linux
 ---
 
 
