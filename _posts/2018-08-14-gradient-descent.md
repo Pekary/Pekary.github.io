@@ -57,7 +57,7 @@ for epoch in range(epoch_nums):
 
 ### 指数移动平均
 
-&emsp;&emsp;股票交易平台通常会提供移动平均这个指标，以股价的变化为例说明指数移动平均（Exponential Moving Average, EMA）。假设第$t$天的股票价格为$w_t$，EMA为$v_t$，$v_1=0$；$\beta$为EMA参数，$0\le \beta \le 1$，其通常取值为$[0.8, 0.999]$，等下会说明$\beta$的意义。那么$v_{k+1}$的计算如下：
+&emsp;&emsp;股票交易平台通常会提供移动平均这个指标，以股价的变化为例说明指数移动平均（Exponential Moving Average, EMA）。假设第$t$天的股票价格为$w_t$，EMA为$v_t$，$v_0=0$；$\beta$为EMA参数，$0\le \beta \le 1$，其通常取值为$[0.8, 0.999]$，等下会说明$\beta$的意义。那么$v_{k+1}$的计算如下：
 
 $$
 \begin{equation}v_{t+1} = \beta v_t + (1 - \beta)w_{t+1}\end{equation}
